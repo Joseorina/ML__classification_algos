@@ -43,4 +43,9 @@ classifier = Sequential()
 classifier.add(Dense(output_dim = 6, init='uniform',activation='relu',input_dim=11))
 
 #adding the second hidden layer
+classifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'relu'))
+
+#adding the output layer
 classifier.add(Dense(output_dim=1,init='uniform',activation='sigmoid'))
+
+#compiling the ANN
