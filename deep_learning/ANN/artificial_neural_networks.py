@@ -19,3 +19,7 @@ X[:, 2] =labelencoder_X_2.fit_transform(X[:,2])
 onehotencoder = OneHotEncoder(categorical_features = [1])
 X = onehotencoder.fit_transform(X).toarray()
 X = X[:,1:]
+
+#spliting the dataest into training set and test set
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state=0)
