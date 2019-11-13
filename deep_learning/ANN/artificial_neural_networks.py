@@ -30,7 +30,7 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
-#Making the ANN
+#Making the ANN(Part 2)
 #import keras libraries and packages
 import keras
 from keras.models import Sequential
@@ -38,3 +38,9 @@ from keras.layers import Dense
 
 #initializing the ANN
 classifier = Sequential()
+
+#adding the input layer and the first hidden layer
+classifier.add(Dense(output_dim = 6, init='uniform',activation='relu',input_dim=11))
+
+#adding the second hidden layer
+classifier.add(Dense(output_dim=1,init='uniform',activation='sigmoid'))
