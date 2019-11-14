@@ -50,3 +50,6 @@ classifier.add(Dense(output_dim=1,init='uniform',activation='sigmoid'))
 
 #compiling the ANN
 classifier.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
+
+#fitting ANN to the training set
+classifier.fit(X_train, y_train, batch_size=10, nb_epoch=100)
