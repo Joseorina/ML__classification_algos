@@ -15,11 +15,12 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
-#applying LDA
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
-lda = LDA(n_components=2)
-X_train = lda.fit_transform(X_train, y_train)
-X_test = lda.transform(X_test)
+#applying Kernel PCA
+from sklearn.decomposition import KernelPCA
+kpca = KernelPCA(n_components=2, kernel='rbf')
+X_train = kpca.fit_transform(X_train, y_train)
+X_test = kpca.transform(X_test)
+
 
 #fitting the regression to the traiinign ste
 from sklearn.linear_model import LogisticRegression
@@ -46,8 +47,8 @@ for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green', 'blue'))(i), label = j)
 plt.title('Logistic Regression (Training set)')
-plt.xlabel('LDA1')
-plt.ylabel('LDA2')
+plt.xlabel('KPCA1')
+plt.ylabel('KPCA2')
 plt.legend()
 plt.show()
 
@@ -64,6 +65,6 @@ for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green', 'blue'))(i), label = j)
 plt.title('Logistic Regression (Test set)')
-plt.xlabel('LDA1')
-plt.ylabel('LDA@')
+plt.xlabel('KPCA1')
+plt.ylabel('KPCA2')
 plt.legend()
